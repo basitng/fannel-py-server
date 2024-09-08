@@ -1,5 +1,5 @@
+import uvicorn
 import asyncio
-from typing import Optional
 from dub import Dub
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel, HttpUrl
@@ -140,5 +140,4 @@ async def get_brightdata_snapshot(snapshot_id: str = Query(..., description="The
 
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
